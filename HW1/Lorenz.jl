@@ -2,22 +2,22 @@
 using Plots
 # define the Lorenz attractor
 Base.@kwdef mutable struct Lorenz
-    dt::Float64 = 0.02
-    σ::Float64 = 10
-    ρ::Float64 = 28
-    β::Float64 = 8/3
-    x::Float64 = 1
-    y::Float64 = 1
-    z::Float64 = 1
+  dt::Float64 = 0.02
+  σ::Float64 = 10
+  ρ::Float64 = 28
+  β::Float64 = 8/3
+  x::Float64 = 1
+  y::Float64 = 1
+  z::Float64 = 1
 end
 
 function step!(l::Lorenz)
-    dx = l.σ * (l.y - l.x)
-    dy = l.x * (l.ρ - l.z) - l.y
-    dz = l.x * l.y - l.β * l.z
-    l.x += l.dt * dx
-    l.y += l.dt * dy
-    l.z += l.dt * dz
+  dx = l.σ * (l.y - l.x)
+  dy = l.x * (l.ρ - l.z) - l.y
+  dz = l.x * l.y - l.β * l.z
+  l.x += l.dt * dx
+  l.y += l.dt * dy
+  l.z += l.dt * dz
 end
 
 attractor = Lorenz()
